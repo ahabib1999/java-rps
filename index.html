@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div id="content">
+        <h1 id="title">Rock Paper Scissors</h1>
+        <div id = "user_img">
+            <img id="rock_icon" onclick="userChoice(1)" src="rock.png" alt="Rock">
+            <img id="paper_icon" onclick="userChoice(2)" src="paper.png" alt="Paper">
+            <img id = "scissor_icon" onclick="userChoice(3)" src="scissors.png" alt="Scissors">
+        </div>
+        <hr id="divider" >
+        <h2 id="score">User - CPU</h2>
+        <button id="reset" onclick="gameReset()" type="button">Reset</button>
+            <!--<hr id="inner_divider">-->
+        </div>
+        <div id="cpu_img">
+            <img id="cpu_rock_icon" src="rock.png" alt="Rock">
+            <img id="cpu_paper_icon" src="paper.png" alt="Paper">
+            <img id = "cpu_scissor_icon" src="scissors.png" alt="Scissors">
+        </div>
+    </div>
+</body>
+</html>

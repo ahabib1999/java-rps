@@ -1,0 +1,58 @@
+h1 {
+   color: black;
+   text-align: center;
+   padding-bottom: 50px; 
+}
+
+img {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 170px;
+}
+
+#user_img {
+    position: relative;
+    text-align: center;
+    bottom: 10px;
+}
+
+#cpu_img {
+    position: relative;
+    text-align: center;
+    bottom: 100px;
+    
+}
+
+body {
+    background-color: dodgerblue;
+}
+
+#divider {
+    position: relative;
+    border-style: solid;
+    border-color: black;
+    height: 50px;
+    border-radius: 100px;
+}
+
+/*#inner_divider {
+    border-style: solid;
+    border-color: black;
+    position: absolute;
+    top: 13cm;
+    width: 83rem;
+}*/
+
+#score {
+    position: relative;
+    font-size: 50px;
+    text-align: center;
+    bottom: 100px;
+    color: red;
+}
+
+#reset {
+    position: relative;
+    bottom: 110px;
+    left: 200px;
+}
