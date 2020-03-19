@@ -4,9 +4,15 @@ totalScore = {
     user: 0,
     cpu: 0
 };
+var userPreviousOption = null;
+var cpuPreviousOption = null;
+
 
 function userChoice(userKey) {
-    var userOption
+    if (userPreviousOption != null) {
+        userPreviousOption.style.border = "none";
+    }
+    var userOption;
     if (userKey == 1) {
         userOption = document.getElementById(elementIds[0])
     }
@@ -16,16 +22,22 @@ function userChoice(userKey) {
     else {
         userOption = document.getElementById(elementIds[2])
     }
-    userOption.style.border = "10px solid orange";
-    
+    userPreviousOption = userOption;
+    userOption.style.border = "10px solid yellow";
+
     var cpuKey = cpuChoice();
     totalScore = gameLogic(userKey,cpuKey);
-    document.getElementById("score").innerHTML = totalScore.user + " - " + totalScore.cpu; 
+    document.getElementById("user-score").innerHTML = totalScore.user
+    document.getElementById("cpu-score").innerHTML = totalScore.cpu
 }
 
 // Randomly makes a choice between 1, 2 or 3 and returns it
 function cpuChoice() {
+    if (cpuPreviousOption != null) {
+        cpuPreviousOption.style.border = "none";
+    }
     var cpuOption, cpuKey;
+
     var randInt = Math.floor(Math.random() * 3);
     if (randInt == 0) {
         cpuOption = document.getElementById("cpu_rock_icon")
@@ -39,32 +51,32 @@ function cpuChoice() {
         cpuOption = document.getElementById("cpu_scissor_icon")
         cpuKey = 3
     }
-    
-    cpuOption.style.border = "10px solid orange";
+    cpuPreviousOption = cpuOption;
+    cpuOption.style.border = "10px solid black";
     return cpuKey;
 }
-
-// This compares user and cpu choice and returns score
-// Input: userKey, cpuKey
-// Output: score = {
-    //user: Number,
-    //cpu: Number
 
 function gameLogic(userKey,cpuKey) {
     
     if (userKey == 1 && cpuKey == 2 || userKey == 2 && cpuKey == 3 || userKey == 3 && cpuKey == 1) {
-        totalScore.cpu += 1;
+        totalScore.cpu += 5;
+        console.log("You lose");
     }
     else if (userKey == 1 && cpuKey == 3 || userKey == 2 && cpuKey == 1 || userKey == 3 && cpuKey == 2) {
-        totalScore.user += 1;
+        totalScore.user += 5;
+        console.log("You win");
     }
     return totalScore;
     
 }
 
 function gameReset() {
-    for (i = 0; i < elementIds.length;i++) {
-        document.getElementById(elementIds[i]).style.borderStyle = "none";
-    }
-
+    totalScore.user = 0
+    totalScore.cpu = 0
+    document.getElementById("user-score").innerHTML = totalScore.user
+    document.getElementById("cpu-score").innerHTML = totalScore.cpu
+    userPreviousOption.style.border = "none";
+    cpuPreviousOption.style.border = "none";
+    userPreviousOption = null;
+    cpuPreviousOption = null;
 }

@@ -4,28 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="main.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="main.js"></script> 
     <title>Rock Paper Scissors</title>
 </head>
-<body>
-    <div id="content">
-        <h1 id="title">Rock Paper Scissors</h1>
-        <div id = "user_img">
-            <img id="rock_icon" onclick="userChoice(1)" src="rock.png" alt="Rock">
-            <img id="paper_icon" onclick="userChoice(2)" src="paper.png" alt="Paper">
-            <img id = "scissor_icon" onclick="userChoice(3)" src="scissors.png" alt="Scissors">
+<body style="background-color:rgb(197, 197, 197);">
+<div style="background-color: rgb(197, 197, 197); display: flex; flex-direction: column; flex: 1; min-height: 100vh;">
+    
+    <!--  -->
+    <div id="headerContainer" style="padding: 0.5rem; background-color: white; 
+    flex: 1; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;;">
+        <h1 id="title" class="ui center aligned header" style="flex: 1;" id="title">Rock Paper Scissors</h1>
+    </div>
+    
+    <!--  -->
+    <div class="ui grid" id="gameContainer" style="flex: 1; background-color: white;">
+    <div class="eight wide column ui grid centered blue" style="margin: 0">
+        <div class="row">
+            <button class="ui circular massive icon button" id="rock_icon" onclick="userChoice(1)">
+                <i class="hand rock green icon huge"></i>
+            </button>
         </div>
-        <hr id="divider" >
-        <h2 id="score">User - CPU</h2>
-        <button id="reset" onclick="gameReset()" type="button">Reset</button>
-            <!--<hr id="inner_divider">-->
+        <div class="row">
+            <button class="ui circular massive icon button" id="paper_icon" onclick="userChoice(2)">
+                <i class="hand paper orange icon huge"></i>
+            </button>            
         </div>
-        <div id="cpu_img">
-            <img id="cpu_rock_icon" src="rock.png" alt="Rock">
-            <img id="cpu_paper_icon" src="paper.png" alt="Paper">
-            <img id = "cpu_scissor_icon" src="scissors.png" alt="Scissors">
+        <div class="row">
+            <button class="ui circular massive icon button" id = "scissor_icon" onclick="userChoice(3)">
+                <i class="hand scissors brown icon huge"></i>
+            </button>            
         </div>
     </div>
+    <div class="eight wide column ui grid centered red" style="margin: 0">
+        <div class="row">
+            <button class="ui circular massive active disabled icon button" id="cpu_rock_icon">
+                <i class="hand green rock icon huge"></i>
+            </button>
+        </div>
+        <div class="row">
+            <button class="ui circular massive active disabled icon button" id="cpu_paper_icon">
+                <i class="hand orange paper icon huge"></i>
+            </button>            
+        </div>
+        <div class="row">
+            <button class="ui circular massive active disabled icon button" id="cpu_scissor_icon">
+                <i class="hand brown scissors icon huge"></i>
+            </button>
+                        
+        </div>
+    </div>
+    
+</div>
+
+<!--  -->
+<div class="ui grid" id="buttonContainer" style="background-color: rgb(197, 197, 197); flex: 1;">
+    <div class="seven wide column ui grid centered">
+        <div class="row">
+            <h2 class="ui center aligned header">User Score</h2>
+        </div>
+        <div class="row">
+            <h1 id="user-score" class="ui center aligned header blue">0</h1>
+        </div>
+
+    </div>
+    <div class="two wide column ui grid centered">
+            <button class="teal ui large labeled icon rounded button" onclick="gameReset()" type="button">
+                <i class="undo icon"></i>
+                Reset
+            </button>
+    </div>
+        <div class="seven wide column ui grid centered">
+            <div class="row">
+                <h2 class="ui center aligned header">CPU Score</h2>
+            </div>
+            <div class="row">
+                <h1 id="cpu-score" class="ui center aligned header red">0</h1>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    
+    <!-- <div class=class="ui right aligned grid">
+        <div class="center aligned two column row">
+            <div class="ui small image">
+                <img id="rock_icon" onclick="userChoice(1)" src="rock.png" alt="Rock">
+                <img id="paper_icon" onclick="userChoice(2)" src="paper.png" alt="Paper">
+                <img id = "scissor_icon" onclick="userChoice(3)" src="scissors.png" alt="Scissors">
+            </div>
+        </div>
+        <div class="ui vertical divider">
+            <h2 id="score">User - CPU</h2>
+            <button class="ui button" onclick="gameReset()" type="button">Reset</button>
+        </div>
+        <div class="center aligned two column row">
+            <div class="ui small image">
+                <img id="cpu_rock_icon" src="rock.png" alt="Rock">
+                <img id="cpu_paper_icon" src="paper.png" alt="Paper">
+                <img id = "cpu_scissor_icon" src="scissors.png" alt="Scissors">
+            </div>
+        </div>
+    </div> -->
 </body>
 </html>
